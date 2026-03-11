@@ -16,6 +16,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  scrollbar-color: var(--primary-green) var(--color-white);
+
   /* ── Radius ─────────────────────────────────────────── */
   --radius: 0.625rem;
 

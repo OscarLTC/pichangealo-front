@@ -55,7 +55,7 @@ export function AppHeader() {
       <Button
         id="btn-nueva-reserva"
         size="sm"
-        className="gap-1.5 rounded-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold shadow-sm"
+        className="rounded-full bg-brand hover:bg-brand/80 text-white font-semibold shadow-sm"
         onClick={() => navigate("/reservas")}
       >
         <Plus className="h-4 w-4" />

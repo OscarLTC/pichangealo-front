@@ -76,15 +76,12 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="px-4 py-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#22c55e] shadow-sm">
-            <Goal className="h-5 w-5 text-white" />
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand shadow-sm">
+            <MdOutlineSportsSoccer className="h-5 w-5 text-white" />
           </div>
           <div className="flex flex-col leading-none group-data-[collapsible=icon]:hidden">
-            <span className="text-base font-bold tracking-tight text-foreground">
+            <span className="text-xl font-bold tracking-tight text-foreground">
               Pichangealo
-            </span>
-            <span className="text-[11px] text-muted-foreground">
-              Admin Panel
             </span>
           </div>
         </div>
@@ -104,7 +101,7 @@ export function AppSidebar() {
                         className={cn(
                           "h-10 px-4 rounded-full",
                           isActive &&
-                            "text-[#22c55e] data-[active=true]:bg-[#eafdf1] data-[active=true]:text-[#22c55e] hover:bg-[#eafdf1] hover:text-[#22c55e]",
+                            "text-brand data-[active=true]:bg-brand/10 data-[active=true]:text-brand hover:bg-brand/10 hover:text-brand",
                         )}
                       >
                         <item.icon className="h-4 w-4 shrink-0" />
