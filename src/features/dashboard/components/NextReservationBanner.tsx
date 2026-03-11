@@ -49,7 +49,6 @@ export function NextReservationBanner({
         </div>
       </div>
 
-      {/* CTA */}
       <div className="hidden md:block z-10">
         <Button
           variant="outline"
@@ -60,7 +59,6 @@ export function NextReservationBanner({
         </Button>
       </div>
 
-      {/* Decorative background */}
       <div className="absolute right-0 top-0 h-full w-1/3 bg-brand/10 -skew-x-12 translate-x-10 pointer-events-none" />
     </div>
   );

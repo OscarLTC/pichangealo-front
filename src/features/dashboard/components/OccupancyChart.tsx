@@ -16,7 +16,6 @@ import {
 
 export interface HourBarData {
   hour: string;
-  /** Porcentaje de ocupación: 0 – 100 */
   occupancy: number;
 }
 
@@ -29,7 +28,6 @@ interface OccupancyChartProps {
 
 const PERIOD_OPTIONS = ["Hoy", "Semana"] as const;
 
-/** Convierte un porcentaje en una clase de altura de Tailwind aproximada */
 function getHeightClass(occupancy: number): string {
   if (occupancy >= 95) return "h-[95%]";
   if (occupancy >= 90) return "h-[90%]";
@@ -40,7 +38,6 @@ function getHeightClass(occupancy: number): string {
   return "h-1/2";
 }
 
-/** El color de la barra se satura cuanto mayor es la ocupación */
 function getBarColorClass(occupancy: number): string {
   if (occupancy < 40) return "bg-brand/20";
   if (occupancy < 60) return "bg-brand/40";

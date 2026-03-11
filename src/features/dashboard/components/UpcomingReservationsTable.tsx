@@ -1,5 +1,10 @@
 import { cn } from "@/shared/lib/utils";
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/shared/components/ui/card";
 
 export type ReservationStatus = "Confirmado" | "Pendiente" | "Manual";
 export type PaymentStatus = "Pagado" | string; // string para importes como "S/ 120"
@@ -47,7 +52,6 @@ export function UpcomingReservationsTable({
 }: UpcomingReservationsTableProps) {
   return (
     <Card className="overflow-hidden">
-      {/* Table Header */}
       <CardHeader className="border-b border-border flex-row items-center justify-between">
         <CardTitle>Próximas reservas</CardTitle>
         <button
@@ -58,7 +62,6 @@ export function UpcomingReservationsTable({
         </button>
       </CardHeader>
 
-      {/* Table */}
       <CardContent className="p-0">
         <table className="w-full text-left">
           <thead>

@@ -11,10 +11,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route element={<AppLayout />}>
-        <Route path="/dashboard"     element={<DashboardPage />} />
-        <Route path="/reservas"      element={<BookingsPage />} />
-        <Route path="/canchas"       element={<FieldsPage />} />
-        <Route path="/tarifas"       element={<PricingPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/reservas" element={<BookingsPage />} />
+        <Route path="/canchas" element={<FieldsPage />} />
+        <Route path="/tarifas" element={<PricingPage />} />
         <Route path="/configuracion" element={<SettingsPage />} />
       </Route>
     </Routes>

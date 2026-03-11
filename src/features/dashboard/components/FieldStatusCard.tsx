@@ -7,9 +7,7 @@ export interface FieldStatusData {
   id: string;
   name: string;
   status: FieldStatus;
-  /** Texto auxiliar: "42m restantes", "Disponible ahora", "Mantenimiento" */
   statusDetail: string;
-  /** Porcentaje de ocupación diaria: 0 – 100 */
   dailyOccupancy: number;
 }
 
@@ -39,7 +37,6 @@ export function FieldStatusCard({ field }: FieldStatusCardProps) {
       <h5 className="text-sm font-bold text-foreground mb-1">{status}</h5>
       <p className="text-xs text-muted-foreground mb-4">{statusDetail}</p>
 
-      {/* Progress bar */}
       <div className="w-full bg-muted h-1.5 rounded-full mb-1">
         <div
           className="bg-brand h-full rounded-full transition-all"

@@ -3,7 +3,6 @@ import { Card } from "@/shared/components/ui/card";
 
 export interface QuickActionItem {
   id: string;
-  /** Ícono Material Symbols */
   icon: string;
   label: string;
   onClick?: () => void;

@@ -1,12 +1,16 @@
 import { cn } from "@/shared/lib/utils";
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/shared/components/ui/card";
 
 type AlertVariant = "warning" | "danger" | "neutral";
 
 export interface AlertItem {
   id: string;
   variant: AlertVariant;
-  /** Nombre del ícono SVG simplificado — usa Material Symbols strings */
   icon: string;
   title: string;
   description: string;
@@ -50,7 +54,6 @@ function AlertCard({ alert }: AlertCardProps) {
           styles.iconWrapper,
         )}
       >
-        {/* Material Symbols via span con font cargada en index.html o index.css */}
         <span className="material-symbols-outlined text-xl">{alert.icon}</span>
       </div>
       <div>

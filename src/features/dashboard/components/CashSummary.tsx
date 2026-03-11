@@ -1,11 +1,14 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/shared/components/ui/card";
 
 export interface PaymentMethodRow {
   id: string;
   label: string;
-  /** Ícono Material Symbols */
   icon: string;
-  /** Clases Tailwind para el wrapper del ícono, ej. "bg-green-100 text-green-600" */
   iconStyle: string;
   amount: string;
 }
@@ -43,7 +46,6 @@ export function CashSummary({ rows, total }: CashSummaryProps) {
             </div>
           ))}
 
-          {/* Total */}
           <div className="pt-4 mt-4 border-t border-border flex items-center justify-between">
             <span className="text-lg font-bold text-foreground">Total</span>
             <span className="text-lg font-bold text-brand">{total}</span>
