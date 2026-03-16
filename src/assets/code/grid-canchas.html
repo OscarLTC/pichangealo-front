@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pichangealo - Gestión de Canchas</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2eea79",
+                        "primary-content": "#0e1b13",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c20",
+                        "text-main": "#0e1b13",
+                        "text-secondary": "#4d996b",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.25rem", 
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 bg-surface-light px-6 py-4 dark:border-slate-800 dark:bg-surface-dark lg:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_543"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Pichangealo</h2>
+</div>
+<div class="hidden md:flex w-full max-w-sm items-stretch rounded-xl h-10">
+<div class="text-text-secondary flex border-none bg-background-light dark:bg-background-dark items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-text-main dark:text-white focus:outline-0 focus:ring-0 border-none bg-background-light dark:bg-background-dark focus:border-none h-full placeholder:text-text-secondary px-4 rounded-l-none pl-2 text-sm font-normal leading-normal" placeholder="Buscar cancha..." value=""/>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium" href="#">Reservas</a>
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium" href="#">Caja</a>
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium" href="#">Configuración</a>
+</div>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-800">
+<button class="bg-primary/20 p-2 rounded-full hover:bg-primary/30 transition-colors text-primary-dark">
+<span class="material-symbols-outlined text-[20px] text-primary-content dark:text-primary">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7GnGpGtoVQ8GlUiuaIKVTPQW7NXgphDySIUwcDfsiaFFSU7cB6HvwkPTkbhhgckoqbb0ClfrQgg8x0PT85MOb--FuinrnNj32RL_yCFrqZSWA9SufD1hOIDTbFeAh5Hm9szd4g0E3ffC16COb-VdakBOLQOgDZ5BqVKm_BzKYvJq-cIUngsRkU0qk-T0Jn6j_kprGlABp6qQVPKcYJCQHcimuwQj4LNhh5ivOOGbSi41201fgpVQz2lj9EUbXxcrDivtAxdQjZGQ");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col p-6 lg:p-10 max-w-[1400px] mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+</div>
+<!-- Filter/Search Toolbar Mobile -->
+<div class="md:hidden mb-6">
+<div class="flex w-full items-stretch rounded-xl h-12 bg-white dark:bg-surface-dark shadow-sm">
+<div class="text-text-secondary flex items-center justify-center pl-4 rounded-l-xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 text-text-main dark:text-white placeholder:text-text-secondary px-4 text-sm" placeholder="Buscar por nombre..."/>
+</div>
+</div>
+<!-- Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"><div class="group flex flex-col items-center justify-center min-h-[300px] rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-primary hover:bg-primary/5 transition-all duration-300 cursor-pointer">
+<div class="bg-primary/10 rounded-full p-4 mb-4 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[40px] text-primary">add</span>
+</div>
+<h3 class="text-lg font-bold text-text-main dark:text-white">Nueva Cancha</h3>
+<p class="text-text-secondary text-sm mt-2 text-center px-4">Configura un nuevo espacio deportivo</p>
+</div>
+<!-- Card 1 -->
+<div class="group flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_20px_rgba(46,234,121,0.15)] transition-all duration-300 overflow-hidden border border-transparent hover:border-primary/30">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="absolute top-3 right-3 z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-emerald-700 backdrop-blur-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            Activo
+                        </span>
+</div>
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Sunny outdoor soccer field with green grass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4CWe5Mh8HdRhw05SBjTtDWv2u6gzuD7FND7kf26bXOE5ZzA98zehxbcbRhfaPzXfOMTpefeQjEUrf8SCC37VN3Ec5az59_lKG62t2GWT5-Vog3qb6SiuqKqUrfOM_X1Is2UxD5QAQ2Z1b7GbBSn07Bz8gpBZ1RQbjKU53I6hG_wDm4LqAanbuwkkmF-687unGzwcoU429BpifxjotCWg_VMhSVfsQOCqFhi9yhMaO8FCxS3ew-jR4h7wc00CBa_l1679NKzL2uZM");'></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">La Bombonera</h3>
+<div class="flex items-center gap-1 text-text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]">sports_soccer</span>
+<span>Fútbol 7</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-text-secondary uppercase font-semibold">Base</p>
+<p class="font-bold text-text-main dark:text-white">$40.000<span class="text-xs font-normal text-text-secondary">/hr</span></p>
+</div>
+</div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-700"></div>
+<div class="flex items-center justify-between gap-3 mt-auto">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+<span class="ms-2 text-xs font-medium text-text-secondary group-hover/toggle:text-text-main transition-colors dark:group-hover/toggle:text-white">Online</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-text-main dark:text-white text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+                            Editar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_20px_rgba(46,234,121,0.15)] transition-all duration-300 overflow-hidden border border-transparent hover:border-primary/30">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="absolute top-3 right-3 z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-slate-500 backdrop-blur-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                            Inactivo
+                        </span>
+</div>
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Indoor futsal court with wooden floor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBzc6f3gpOP6GJQHzYZo0BLYq2ebXtQKFw9N-N1eUimQ_drC3-m22718F-CDsi8G_zp5h5mMBhS3EntNS0IRwkIkYtnllNcn-oF6kwlHt7JaH10gXVbmilBF4ihs9dwKacHbINjLl0tDAp2dcdcyra8_GqvSwuep8XGgXnHNftSRTGVyr1-TfpXM1H0ceGMSraQPVn-PmTqBEl3zdDXYjDGQ10bPf2w8T3K7n132YBTXMimQe-gyR2weGNyvvnbpKAEjO_pEBg42s");'></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">El Camp Nou</h3>
+<div class="flex items-center gap-1 text-text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]">sports_soccer</span>
+<span>Fútbol 5</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-text-secondary uppercase font-semibold">Base</p>
+<p class="font-bold text-text-main dark:text-white">$30.000<span class="text-xs font-normal text-text-secondary">/hr</span></p>
+</div>
+</div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-700"></div>
+<div class="flex items-center justify-between gap-3 mt-auto">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+<span class="ms-2 text-xs font-medium text-text-secondary group-hover/toggle:text-text-main transition-colors dark:group-hover/toggle:text-white">Online</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-text-main dark:text-white text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+                            Editar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_20px_rgba(46,234,121,0.15)] transition-all duration-300 overflow-hidden border border-transparent hover:border-primary/30">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="absolute top-3 right-3 z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-emerald-700 backdrop-blur-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            Activo
+                        </span>
+</div>
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Large professional soccer stadium view from corner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC009CcFN4mBZypKjwTK3nHHtyads2ydwOfNu3jezt1j_p25iDXx2169xhVVIiJ1dzlEyzSrcWdgfRT3oGYIELXnBg31NJn_3EZvXiPh0mFhrkasqe0AhttPW2z9JTNRKXFkItET53oK7Yqu_9XGRVthvA03OLIPq3wRsmc-CmIyhogtkCR0eiN7OWT6J3H8Vk2AZ4m4_cxNuU1ebQXs_miD--rxy2y7UzuIH9lGJibDzZSzhPpGyRQkeOdaULGIvK-yHbdultTgpA");'></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">Wembley</h3>
+<div class="flex items-center gap-1 text-text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]">sports_soccer</span>
+<span>Fútbol 11</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-text-secondary uppercase font-semibold">Base</p>
+<p class="font-bold text-text-main dark:text-white">$80.000<span class="text-xs font-normal text-text-secondary">/hr</span></p>
+</div>
+</div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-700"></div>
+<div class="flex items-center justify-between gap-3 mt-auto">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+<span class="ms-2 text-xs font-medium text-text-secondary group-hover/toggle:text-text-main transition-colors dark:group-hover/toggle:text-white">Online</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-text-main dark:text-white text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+                            Editar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_20px_rgba(46,234,121,0.15)] transition-all duration-300 overflow-hidden border border-transparent hover:border-primary/30">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="absolute top-3 right-3 z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-amber-700 backdrop-blur-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                            Mantenimiento
+                        </span>
+</div>
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Artificial turf texture detail view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDigqh7iaRzhlUJe2h8ptCZDBs1oBhic3dAeNgVYVJo1POTaDzeriDBCfQUGxpcM81m0C60ki8ytaCZ949phJ76T5I9i-hy6u0_fR9ynY042NHVGMNLZipKdTV_CBc0f5RBafDD0pwwCcgzAWWjvQ3ZNo6JFsoYGkho09IDaXQAMY7gaAf8HBOj3QltVQh83S6NG3pONveYIpUBaGLRkzE4Qa8pvJyg10btLadGJl6-CBZIn26KVJFEC7MojA8WgvkXtemYtdo5PnQ");'></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold text-text-main dark:text-white leading-tight mb-1">Maracaná 2</h3>
+<div class="flex items-center gap-1 text-text-secondary text-sm">
+<span class="material-symbols-outlined text-[16px]">sports_soccer</span>
+<span>Fútbol 7</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-text-secondary uppercase font-semibold">Base</p>
+<p class="font-bold text-text-main dark:text-white">$45.000<span class="text-xs font-normal text-text-secondary">/hr</span></p>
+</div>
+</div>
+<div class="w-full h-px bg-slate-100 dark:bg-slate-700"></div>
+<div class="flex items-center justify-between gap-3 mt-auto">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+<span class="ms-2 text-xs font-medium text-text-secondary group-hover/toggle:text-text-main transition-colors dark:group-hover/toggle:text-white">Online</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-text-main dark:text-white text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+                            Editar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Add New Card Ghost -->
+</div>
+</main>
+</body></html>
