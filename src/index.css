@@ -30,6 +30,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-green: oklch(67.955% 0.18926 143.158);
+  --brand-secondary: oklch(0.2 0 0); /* Carbón/oscuro minimalista */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -75,6 +76,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-brand: var(--primary-green);
+  --color-brand-secondary: var(--brand-secondary);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
