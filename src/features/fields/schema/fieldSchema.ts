@@ -7,8 +7,9 @@ export const fieldSchema = z.object({
   capacity: z.number().min(1, "La capacidad debe ser mayor a 0").optional(),
   basePrice: z.number().min(0, "El precio no puede ser negativo").optional(),
   state: z.enum(["Activa", "Inactiva", "Mantenimiento"]),
+  imageUrl: z.union([z.url({ error: "Debe ser una URL válida." }), z.literal("")]).optional(),
   internalNotes: z.string().optional(),
-  maintenanceReason: z.string().optional()
+  maintenanceReason: z.string().optional(),
 });
 
 export const refinedFieldSchema = fieldSchema.superRefine((data, ctx) => {

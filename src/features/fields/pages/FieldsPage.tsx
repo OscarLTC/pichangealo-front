@@ -34,19 +34,36 @@ export default function FieldsPage() {
     setIsDrawerOpen(true);
   };
 
+  const deriveOperationalHint = (data: Partial<Field>): string => {
+    if (data.state === "Mantenimiento") return "En mantenimiento";
+    if (data.state === "Inactiva") return "Cerrada";
+    return "Libre ahora";
+  };
+
   const handleSaveModal = (data: Partial<Field>) => {
     if (editingField) {
-      setFields(fields.map(f => f.id === editingField.id ? { ...f, ...data } as Field : f));
+      const updated = {
+        ...editingField,
+        ...data,
+        operationalHint: deriveOperationalHint(data),
+      } as Field;
+      setFields(fields.map(f => f.id === editingField.id ? updated : f));
       if (selectedField?.id === editingField.id) {
-        setSelectedField({ ...selectedField, ...data } as Field);
+        setSelectedField(updated);
       }
     } else {
-      setFields([{ 
-        ...data, 
+      setFields([{
+        ...data,
         id: Math.random().toString(),
-        operationalHint: data.state === 'Activa' ? "Libre ahora" : "Cerrada"
+        operationalHint: deriveOperationalHint(data),
       } as Field, ...fields]);
     }
+  };
+
+  const handleDelete = (field: Field) => {
+    setFields(prev => prev.filter(f => f.id !== field.id));
+    setIsDrawerOpen(false);
+    setSelectedField(null);
   };
 
   return (
@@ -72,11 +89,12 @@ export default function FieldsPage() {
       </FieldGrid>
 
       {/* Detail Drawer overlay */}
-      <FieldDetailDrawer 
+      <FieldDetailDrawer
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
         field={selectedField}
         onEdit={handleEdit}
+        onDelete={handleDelete}
       />
 
       {/* Create / Edit Modal */}
