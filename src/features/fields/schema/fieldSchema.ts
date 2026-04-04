@@ -8,6 +8,7 @@ export const fieldSchema = z.object({
   basePrice: z.number().min(0, "El precio no puede ser negativo").optional(),
   state: z.enum(["Activa", "Inactiva", "Mantenimiento"]),
   imageUrl: z.union([z.url({ error: "Debe ser una URL válida." }), z.literal("")]).optional(),
+  tags: z.array(z.string()).optional(),
   internalNotes: z.string().optional(),
   maintenanceReason: z.string().optional(),
 });
@@ -17,7 +18,7 @@ export const refinedFieldSchema = fieldSchema.superRefine((data, ctx) => {
     ctx.addIssue({
       path: ["maintenanceReason"],
       message: "Debe especificar el motivo del mantenimiento.",
-      code: z.ZodIssueCode.custom,
+      code: "custom",
     });
   }
 });

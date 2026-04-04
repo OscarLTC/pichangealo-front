@@ -6,6 +6,7 @@ export interface Field {
   name: string;
   type: FieldType;
   category?: string;
+  tags?: string[];
   state: FieldState;
   basePrice: number;
   operationalHint: string;

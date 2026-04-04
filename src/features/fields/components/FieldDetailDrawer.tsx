@@ -57,6 +57,19 @@ export function FieldDetailDrawer({
               </SheetDescription>
             </div>
 
+            {field.tags && field.tags.length > 0 && (
+              <div className="flex flex-wrap gap-1.5">
+                {field.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center bg-secondary text-secondary-foreground px-2.5 py-1 rounded-md text-xs font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
             {field.imageUrl ? (
               <div
                 className="w-full h-48 rounded-xl bg-center bg-cover border"
