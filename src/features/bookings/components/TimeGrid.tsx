@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState, useEffect, useMemo } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { cn } from "@/shared/lib/utils";
 import type { Field } from "@/features/fields/types/field";
 import type { Booking } from "../types/booking";
