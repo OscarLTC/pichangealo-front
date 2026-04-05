@@ -21,7 +21,7 @@ export const MOCK_FIELDS: Field[] = [
     name: "El Camp Nou",
     type: "Fútbol 5",
     tags: ["Sintética"],
-    state: "Inactiva",
+    state: "Activa",
     basePrice: 30,
     operationalHint: "Cerrada",
     imageUrl:
